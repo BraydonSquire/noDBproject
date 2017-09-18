@@ -35,6 +35,7 @@ position:relative;
 }
 
 .contain{
+position: relative;
 display: flex;
 margin: auto;
 flex-wrap: wrap;
@@ -51,8 +52,9 @@ border-style: solid;
 .contained{
  
   margin: 30px;
-  width: 80px;
-  height: 80px;
+  display: flex;
+  flex-wrap:wrap;
+  flex-direction: column;
   border-width: 5px;
   border-color: red;
   border-style:solid;

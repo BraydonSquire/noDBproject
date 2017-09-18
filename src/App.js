@@ -14,6 +14,12 @@ class App extends Component {
   this.getPokemon = this.getPokemon.bind(this);
   }
 
+componentDidMount(){
+  axios.get('http://localhost:3001/api/images').then(response => {
+    console.log(response.data)
+  })
+}
+
  getPokemon(val){
     let grab=this.state.baseurl + '?limit=20/';
     axios.get(grab).then( (response) => this.setState({ pokemon: response.data.results}))
