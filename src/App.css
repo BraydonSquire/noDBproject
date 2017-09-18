@@ -39,6 +39,7 @@ display: flex;
 margin: auto;
 flex-wrap: wrap;
 justify-content: space-around;
+flex-direction: row;
 width: 70vw;
 height: 98vh;
 border-color: #2A8D21;
@@ -48,13 +49,14 @@ border-style: solid;
 
 }
 .contained{
-  
+ 
   margin: 30px;
   width: 80px;
   height: 80px;
   border-width: 5px;
   border-color: red;
   border-style:solid;
+  
   
   
 }
@@ -67,4 +69,8 @@ border-style: solid;
   display: flex;
   justify-content: space-around;
   
+}
+.sprite{
+  display: flex;
+  flex-wrap: wrap;
 }

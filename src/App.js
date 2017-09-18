@@ -15,19 +15,11 @@ class App extends Component {
   }
 
  getPokemon(val){
-    let grab=this.state.baseurl + '?limit=30/';
-    axios.get(grab).then( (response) => this.setState({ pokemon: response.data}))
-    console.log(this.state.pokemon.results)
+    let grab=this.state.baseurl + '?limit=20/';
+    axios.get(grab).then( (response) => this.setState({ pokemon: response.data.results}))
+    
   }
   
-           
-        
-        
-      
-    
- 
-
-
   render() {
     return (
       <div className="Parent">
@@ -41,16 +33,19 @@ class App extends Component {
         </div>
         <PokemonList getPokemon={this.getPokemon} /> 
 
-        <div className="contain">
+       
         
-            <div className="contained">{Pokemon}</div>
+           <div className="contain">
+              <Pokemon placePokemon={this.state.pokemon} />
+            </div>
           </div>
-        
-        
-        </div>
+          </div>
           
         
-      </div>
+        
+          
+        
+      
     );
   }
 }

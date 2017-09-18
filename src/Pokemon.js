@@ -1,18 +1,38 @@
 import React, {Component} from 'react';
 
-function Pokemon (props){
+class Pokemon extends Component {
+    render(){
+        const {pokemon,id} = this.props;
+        this.props.placePokemon.map(pokemon => console.log(pokemon))
     return(
-        <div className="type">
-            <div className="type-container">
-                <div className="type-sprite">
-                    {props.placePokemon.getPokemon()}
-                    <img src={ '/public/sprites/${id}.png' } />
-                    </div>
-                    <div className="pokemon-type-name"> {this.state.pokemon} </div> 
-                    </div>
-                    </div>
         
+            <div>
+                {this.props.placePokemon.map(pokemon =>{
+                    return(
+                        
+                        <div className="contained">
+                         <div className="type">
+                         
+                             <div className="type-container"> 
+                                 <div className="sprite">
+                                     <img src={`/public/sprites/${id}.png`} />
+                                <div className="pokemon-type-name"> {pokemon.name} </div>
+                                </div>
+                             </div>
+                            </div>
+                            </div>
+                    )
+                } )}
+                <div className="type-sprite">
+
+                    
+                    </div>
+                     
+                    </div>
+                    
     )
+        
+    }
 }
 
 export default Pokemon;
