@@ -1,8 +1,33 @@
 import React, { Component } from 'react';
-
+import PokemonList from './PokemonList';
 import './App.css';
+import axios from 'axios';
+import Pokemon from './Pokemon'
 
 class App extends Component {
+  constructor(){
+    super();
+  this.state={
+    pokemon:[],
+    baseurl:'http://pokeapi.co/api/v2/pokemon/'
+  }
+  this.getPokemon = this.getPokemon.bind(this);
+  }
+
+ getPokemon(val){
+    let grab=this.state.baseurl + '?limit=30/';
+    axios.get(grab).then( (response) => this.setState({ pokemon: response.data}))
+    console.log(this.state.pokemon.results)
+  }
+  
+           
+        
+        
+      
+    
+ 
+
+
   render() {
     return (
       <div className="Parent">
@@ -14,27 +39,11 @@ class App extends Component {
         <h1><strong>Pokedex</strong></h1>
         </div>
         </div>
-          <div className="buttons">
-            <button>I am button 1</button>
-            <button>I am button 2</button>
-            <button>I am button 3</button>
-            
-
-          </div>
+        <PokemonList getPokemon={this.getPokemon} /> 
 
         <div className="contain">
-            <div className="contained">I am a little box</div>
-            <div className="contained"> I am another box</div>
-            <div className="contained"> I am another box</div>
-            <div className="contained">I am a little box</div>
-            <div className="contained"> I am another box</div>
-            <div className="contained"> I am another box</div>
-            <div className="contained">I am a little box</div>
-            <div className="contained"> I am another box</div>
-            <div className="contained"> I am another box</div>
-            <div className="contained">I am a little box</div>
-            <div className="contained"> I am another box</div>
-            <div className="contained"> I am another box</div>
+        
+            <div className="contained">{Pokemon}</div>
           </div>
         
         
